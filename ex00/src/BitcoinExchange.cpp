@@ -13,6 +13,14 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange &org): _data(org._data), 
 {
 }
 
+bool BitcoinExchange::validKey(std::string key)
+{
+	for (int i = 0; key[i] == 0; i++)
+		;
+	int j = key.find('-');
+	
+}
+
 void BitcoinExchange::fullMap(std::map<std::string, float> *map, std::ifstream &in, char del)
 {
 	std::string line;
@@ -23,6 +31,8 @@ void BitcoinExchange::fullMap(std::map<std::string, float> *map, std::ifstream &
 			i--;
 		std::string key = line.substr(0, i);
 		std::string value = line.substr(line.find(del) + 1, line.length());
+		if (!validKey(key))
+			throw NotValidDate();
 		std::stringstream ss(value);
 		float val;
 		if (ss >> val)

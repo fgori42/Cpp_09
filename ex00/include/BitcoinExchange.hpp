@@ -15,6 +15,7 @@ private:
 	std::map<std::string,float> _data;
 	std::map<std::string,float> _src;
 	void fullMap(std::map<std::string, float> *map, std::ifstream &in, char del);
+	bool validKey(std::string key);
 
 public:
 	BitcoinExchange();
