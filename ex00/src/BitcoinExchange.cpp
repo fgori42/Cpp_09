@@ -155,38 +155,7 @@ const char *BitcoinExchange::ImpossibleToOpen::what()const throw()
 	return "Impossible to open file";
 }
 
-//void BitcoinExchange::printValue(std::string str)
-//{
-//	for (std::map<std::string, float>::iterator j = _src.begin(); j != _src.end(); j++)
-//		if (!validKey(j->first))
-//			std::cout <<"Error: bad input => " << j->first << std::endl;
-//		else
-//		{
-//			if (j->second < 0)
-//				std::cout << "Error: not a positive number." << std::endl;
-//			else if (j->second > 1000)
-//				std::cout << "Error: too large a number." << std::endl;
-//			else
-//			{
-//				std::cout << j->first << " => " << j->second <<  " = ";
-//					for (std::map<std::string, float>::iterator i = _data.begin(); i != _data.end(); i++){
-//						std::map<std::string, float>::iterator next = i;
-						
-//						if(next == _data.end() || next->first > j->first)
-//						{
-//							std::cout << i->second * j->second << std::endl;
-//							break;
-//						}
-//					}
 
-//			}
-//		}
-
-//		//else
-//		//	{
-//			//		std::cout << "______" << i->first << "____" << "   src key____"<< j->first<< "___" << std::endl;
-//			//	}
-//}
 
 void BitcoinExchange::printValue(std::string str)
 {
@@ -227,7 +196,6 @@ void BitcoinExchange::printValue(std::string str)
 			ss >> val;
 			if (ss.fail())
 				throw NotValidIntMax();
-			std::cout << value << "  " << val << std::endl;
 			if (val < 0)
 				throw NotValidInt();
 			if (val > 1000)
