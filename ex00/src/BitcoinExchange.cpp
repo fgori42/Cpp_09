@@ -129,7 +129,7 @@ const char *BitcoinExchange::NotValidInt::what()const throw()
 
 const char *BitcoinExchange::NotValidIntMax::what()const throw()
 {
-	return "Error : too large a nuber";
+	return "Error : too large a numimber";
 }
 
 const char *BitcoinExchange::TooEarly::what()const throw()
@@ -137,7 +137,7 @@ const char *BitcoinExchange::TooEarly::what()const throw()
 	return "Error : bitcoin didn't exist at this time";
 }
 
-BitcoinExchange::NotValidDate::NotValidDate(const std::string &message) throw(): _error("Error : bad imput => " + message) 
+BitcoinExchange::NotValidDate::NotValidDate(const std::string &message) throw(): _error("Error : bad input => " + message) 
 {}
 
 const char *BitcoinExchange::NotValidDate::what()const throw()

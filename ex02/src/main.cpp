@@ -11,8 +11,8 @@ int main(int ac, char *ag[])
 	{
 		PmergeMe *merge = new PmergeMe(ag);
 
-		merge->makeVec();
 		merge->makeDeq();
+		merge->makeVec();
 
 		delete(merge);
 	}

@@ -86,6 +86,8 @@ T PmergeMe::mergeSort(T container)
 	T min;
 	int first;
 	int second;
+	if(container.size() == 1)
+		return(container);
 	do
 	{
 		if (container.size() >= 2)
@@ -107,23 +109,33 @@ T PmergeMe::mergeSort(T container)
 		}
 		else if (container.size() == 1)
 		{
-			max.push_back(container.front());
+			min.push_back(container.front());
 			container.erase(container.begin());
 		}
 	} while(container.size());
 	if (max.size() > 1)
-		mergeSort(max);
-	do{
+		max = mergeSort(max);
+	while(!min.empty())
+	{
 		int numb = min.front();
-		typename T::iterator i = max.begin();
-		while (i != max.end() && numb >= *i)
+		typename T::iterator start = max.begin();
+		typename T::iterator finish = max.end();
+		while (start != finish)
 		{
-			i++;
+			typename T::iterator i = start;
+			std::advance(i, std::distance(start,finish) / 2);
+			if (numb < *i)
+			{
+				finish = i;
+			}
+			else
+			{
+				start = i;
+				++start;
+			}
 		}
-
-		max.insert(i, numb);
+		max.insert(start, numb);
 		min.erase(min.begin());
-
-	} while(min.size());
+	}
 	return (max);
 }
