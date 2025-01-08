@@ -63,8 +63,6 @@ bool BitcoinExchange::validKey(std::string key)
 	std::string year;
 	std::string month;
 	std::string day;
-	//while (key[i] && key[j])
-	//{
 	for (int x = 0; key[x]; x++)
 		if (!std::isdigit(key[x]) && key[x] != '-')
 			return false;
@@ -173,6 +171,7 @@ void BitcoinExchange::printValue(std::string str)
 	while (getline(in, line))
 	{
 		ss.clear();
+		ss.str("");
 		try
 		{
 			if (line == "date | value")
@@ -190,7 +189,7 @@ void BitcoinExchange::printValue(std::string str)
 			value = value.substr(i, value.length() - i);
 			long long val;
 			for (int n = 0; value[n]; n++)
-				if (!isdigit(value[n]) && value[n] != '.')
+				if (!isdigit(value[n]) && value[n] != '.' && value[n] != '-')
 					throw NotValidDate(line);
 			ss << value;
 			ss >> val;

@@ -1,9 +1,9 @@
 SRC = ./src/
 INCLUDE = ./include
 
-file = $(addprefix $(SRC), main.cpp RPN.cpp)
+file = $(addprefix $(SRC), main.cpp PmergeMe.cpp)
 
-NAME =  RPN
+NAME =  PmergeMe
 
 cc = c++
 flag = -Wall -Wextra -Werror -std=c++98 -g
